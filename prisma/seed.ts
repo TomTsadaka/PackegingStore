@@ -192,10 +192,10 @@ async function main() {
   });
 
   const adminUser = await prisma.user.upsert({
-    where: { email: 'admin@typackaging.com' },
+    where: { email: 'tomtsadaka@gmail.com' },
     update: {},
     create: {
-      email: 'admin@typackaging.com',
+      email: 'tomtsadaka@gmail.com',
       password: hashedPassword,
       name: 'Admin User',
       role: 'OWNER',

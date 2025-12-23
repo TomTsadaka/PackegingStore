@@ -4,7 +4,7 @@ import { hash } from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'admin@typackaging.com';
+  const email = 'tomtsadaka@gmail.com';
   const password = 'admin123';
   const name = 'Admin User';
 

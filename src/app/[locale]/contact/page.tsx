@@ -65,7 +65,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
                   <p className="text-muted-foreground">
-                    info@typackaging.com
+                    tomtsadaka@gmail.com
                   </p>
                 </div>
               </div>
