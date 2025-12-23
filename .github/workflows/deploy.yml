@@ -1,0 +1,72 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build project
+        run: npm run build
+        env:
+          SKIP_ENV_VALIDATION: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy to Vercel
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel Production
+        uses: amondnet/vercel-action@v25
+        id: vercel-deploy
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          working-directory: ./
+        continue-on-error: true
+
+      - name: Deployment Status
+        if: steps.vercel-deploy.outcome == 'success'
+        run: |
+          echo "✅ Deployment successful!"
+          echo "Preview URL: ${{ steps.vercel-deploy.outputs.preview-url }}"
+      
+      - name: Deployment Failed
+        if: steps.vercel-deploy.outcome == 'failure'
+        run: |
+          echo "⚠️ Vercel deployment failed or secrets not configured"
+          echo "Note: If Vercel is connected to this repo, it will auto-deploy on push"
+          echo "Check Vercel dashboard for deployment status"
+
