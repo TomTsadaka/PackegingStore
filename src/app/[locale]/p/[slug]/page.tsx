@@ -79,10 +79,10 @@ export default async function ProductPage({
           <div className="border-t pt-6 space-y-4">
             <div className="flex items-baseline gap-4">
               <div className="text-4xl font-bold">{formatPrice(product.price)}</div>
-              <div className="text-sm text-muted-foreground">ללא מע"מ</div>
+              <div className="text-sm text-muted-foreground">ללא מע&quot;מ</div>
             </div>
             <div className="text-lg">
-              {formatPrice(priceWithVat)} כולל מע"מ ({vatRate}%)
+              {formatPrice(priceWithVat)} כולל מע&quot;מ ({vatRate}%)
             </div>
           </div>
 

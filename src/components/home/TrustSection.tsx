@@ -81,7 +81,7 @@ export function TrustSection() {
               </div>
               <div className="flex-1">
                 <p className="text-lg italic text-gray-200 mb-4">
-                  "{t('testimonial.quote')}"
+                  &ldquo;{t('testimonial.quote')}&rdquo;
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="h-px flex-1 bg-gray-600"></div>
