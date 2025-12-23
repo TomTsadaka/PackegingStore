@@ -1,0 +1,139 @@
+{
+  "common": {
+    "language": "Language",
+    "search": "Search",
+    "cart": "Cart",
+    "account": "Account",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "products": "Products",
+    "categories": "Categories",
+    "price": "Price",
+    "addToCart": "Add to Cart",
+    "quantity": "Quantity",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "vat": "VAT",
+    "vatIncluded": "VAT Included",
+    "vatExcluded": "VAT Excluded",
+    "checkout": "Checkout",
+    "continueShopping": "Continue Shopping",
+    "order": "Order",
+    "currency": "ILS",
+    "currencySymbol": "₪",
+    "material": "Material",
+    "packMultiple": "Pack Multiple"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "products": {
+    "title": "Products",
+    "filter": "Filter",
+    "sort": "Sort",
+    "sortBy": "Sort by",
+    "priceLowHigh": "Price: Low to High",
+    "priceHighLow": "Price: High to Low",
+    "newest": "Newest",
+    "popularity": "Popularity",
+    "noProducts": "No products found",
+    "viewDetails": "View Details",
+    "minOrder": "Min. Order",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "remove": "Remove",
+    "update": "Update",
+    "proceedToCheckout": "Proceed to Checkout"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "shipping": "Shipping",
+    "payment": "Payment",
+    "orderSummary": "Order Summary",
+    "placeOrder": "Place Order",
+    "payByInvoice": "Pay by Invoice",
+    "payByCard": "Pay by Card"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "companyName": "Company Name",
+    "businessId": "Business ID",
+    "vatNumber": "VAT Number",
+    "forgotPassword": "Forgot Password"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "orders": "Orders",
+    "customers": "Customers"
+  },
+  "home": {
+    "hero": {
+      "title": "Premium Packaging Solutions for Your Business",
+      "subtitle": "Quality materials, competitive prices, fast delivery across Israel",
+      "cta": {
+        "primary": "Browse Products",
+        "secondary": "Request Quote"
+      },
+      "trust": {
+        "years": "Years of Excellence",
+        "customers": "Satisfied Customers",
+        "support": "Support Available"
+      }
+    },
+    "values": {
+      "title": "Why Choose צ.י אריזות?",
+      "subtitle": "Your trusted partner for all your packaging needs",
+      "quality": {
+        "title": "Quality You Can Trust",
+        "description": "Premium materials that meet the highest industry standards"
+      },
+      "delivery": {
+        "title": "Fast Delivery Across Israel",
+        "description": "Quick and reliable shipping to businesses nationwide"
+      },
+      "pricing": {
+        "title": "Competitive B2B Pricing",
+        "description": "Best prices for bulk orders with flexible payment options"
+      },
+      "support": {
+        "title": "Expert Support",
+        "description": "Dedicated team ready to help with your packaging needs"
+      }
+    },
+    "categories": {
+      "title": "Our Product Categories",
+      "subtitle": "Explore our wide range of packaging solutions",
+      "explore": "Explore",
+      "viewAll": "View All Products"
+    },
+    "trust": {
+      "title": "Trusted by Businesses Across Israel",
+      "subtitle": "Join hundreds of satisfied customers who trust us for their packaging needs",
+      "experience": "Years of Experience",
+      "experienceDesc": "Serving businesses since 2008",
+      "customers": "Satisfied Customers",
+      "customersDesc": "Trusted by businesses nationwide",
+      "quality": "Quality Guaranteed",
+      "qualityDesc": "Premium materials, every time",
+      "support": "24/7 Support",
+      "supportDesc": "Always here to help",
+      "testimonial": {
+        "quote": "צ.י אריזות has been our go-to supplier for years. Their quality is unmatched and delivery is always on time.",
+        "author": "David Cohen",
+        "role": "Operations Manager, Fresh Market Chain"
+      }
+    }
+  }
+}
+

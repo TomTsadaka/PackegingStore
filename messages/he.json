@@ -1,0 +1,141 @@
+{
+  "common": {
+    "language": "שפה",
+    "search": "חיפוש",
+    "cart": "עגלה",
+    "account": "חשבון",
+    "login": "התחברות",
+    "logout": "התנתקות",
+    "register": "הרשמה",
+    "products": "מוצרים",
+    "categories": "קטגוריות",
+    "price": "מחיר",
+    "addToCart": "הוסף לעגלה",
+    "quantity": "כמות",
+    "total": "סה\"כ",
+    "subtotal": "סה\"כ לפני מע\"מ",
+    "vat": "מע\"מ",
+    "vatIncluded": "כולל מע\"מ",
+    "vatExcluded": "ללא מע\"מ",
+    "checkout": "לקופה",
+    "continueShopping": "המשך קנייה",
+    "order": "הזמנה",
+    "currency": "שקל",
+    "currencySymbol": "₪",
+    "material": "חומר",
+    "packMultiple": "כפילות אריזה",
+    "material": "חומר",
+    "packMultiple": "כפילות אריזה"
+  },
+  "nav": {
+    "home": "בית",
+    "products": "מוצרים",
+    "about": "אודות",
+    "contact": "צור קשר",
+    "admin": "ניהול"
+  },
+  "products": {
+    "title": "מוצרים",
+    "filter": "סינון",
+    "sort": "מיון",
+    "sortBy": "מיין לפי",
+    "priceLowHigh": "מחיר: נמוך לגבוה",
+    "priceHighLow": "מחיר: גבוה לנמוך",
+    "newest": "החדש ביותר",
+    "popularity": "פופולריות",
+    "noProducts": "לא נמצאו מוצרים",
+    "viewDetails": "צפה בפרטים",
+    "minOrder": "הזמנה מינימלית",
+    "inStock": "במלאי",
+    "outOfStock": "אזל מהמלאי"
+  },
+  "cart": {
+    "title": "עגלת קניות",
+    "empty": "העגלה שלך ריקה",
+    "remove": "הסר",
+    "update": "עדכן",
+    "proceedToCheckout": "המשך לקופה"
+  },
+  "checkout": {
+    "title": "קופה",
+    "shipping": "משלוח",
+    "payment": "תשלום",
+    "orderSummary": "סיכום הזמנה",
+    "placeOrder": "בצע הזמנה",
+    "payByInvoice": "תשלום בחשבונית",
+    "payByCard": "תשלום בכרטיס"
+  },
+  "auth": {
+    "email": "אימייל",
+    "password": "סיסמה",
+    "companyName": "שם החברה",
+    "businessId": "ח.פ / ע.מ",
+    "vatNumber": "מספר מע\"מ",
+    "forgotPassword": "שכחתי סיסמה"
+  },
+  "admin": {
+    "dashboard": "לוח בקרה",
+    "products": "מוצרים",
+    "orders": "הזמנות",
+    "customers": "לקוחות"
+  },
+  "home": {
+    "hero": {
+      "title": "פתרונות אריזה מקצועיים לעסק שלך",
+      "subtitle": "חומרים איכותיים, מחירים תחרותיים, משלוח מהיר ברחבי הארץ",
+      "cta": {
+        "primary": "עיין במוצרים",
+        "secondary": "בקש הצעת מחיר"
+      },
+      "trust": {
+        "years": "שנות מצוינות",
+        "customers": "לקוחות מרוצים",
+        "support": "תמיכה זמינה"
+      }
+    },
+    "values": {
+      "title": "למה לבחור ב-צ.י אריזות?",
+      "subtitle": "השותף המהימן שלך לכל צרכי האריזה",
+      "quality": {
+        "title": "איכות שאפשר לסמוך עליה",
+        "description": "חומרים איכותיים העומדים בסטנדרטים הגבוהים ביותר בתעשייה"
+      },
+      "delivery": {
+        "title": "משלוח מהיר ברחבי הארץ",
+        "description": "משלוח מהיר ואמין לעסקים ברחבי הארץ"
+      },
+      "pricing": {
+        "title": "מחירים תחרותיים לעסקים",
+        "description": "המחירים הטובים ביותר להזמנות בכמויות עם אפשרויות תשלום גמישות"
+      },
+      "support": {
+        "title": "תמיכה מקצועית",
+        "description": "צוות מקצועי מוכן לעזור עם כל צרכי האריזה שלך"
+      }
+    },
+    "categories": {
+      "title": "קטגוריות המוצרים שלנו",
+      "subtitle": "גלה את המגוון הרחב של פתרונות האריזה שלנו",
+      "explore": "גלה",
+      "viewAll": "צפה בכל המוצרים"
+    },
+    "trust": {
+      "title": "מהימן על ידי עסקים ברחבי הארץ",
+      "subtitle": "הצטרף למאות לקוחות מרוצים הסומכים עלינו לצרכי האריזה שלהם",
+      "experience": "שנות ניסיון",
+      "experienceDesc": "משרתים עסקים מאז 2008",
+      "customers": "לקוחות מרוצים",
+      "customersDesc": "מהימן על ידי עסקים ברחבי הארץ",
+      "quality": "איכות מובטחת",
+      "qualityDesc": "חומרים איכותיים, כל פעם",
+      "support": "תמיכה 24/7",
+      "supportDesc": "תמיד כאן כדי לעזור",
+      "testimonial": {
+        "quote": "צ.י אריזות הוא הספק שלנו כבר שנים. האיכות שלהם ללא תחרות והמשלוח תמיד בזמן.",
+        "author": "דוד כהן",
+        "role": "מנהל תפעול, רשת שווקים טריים"
+      }
+    }
+  }
+}
+
