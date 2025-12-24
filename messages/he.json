@@ -68,10 +68,15 @@
   "auth": {
     "email": "אימייל",
     "password": "סיסמה",
+    "name": "שם מלא",
     "companyName": "שם החברה",
     "businessId": "ח.פ / ע.מ",
     "vatNumber": "מספר מע\"מ",
-    "forgotPassword": "שכחתי סיסמה"
+    "forgotPassword": "שכחתי סיסמה",
+    "createAccount": "צור חשבון",
+    "alreadyHaveAccount": "כבר יש לך חשבון?",
+    "dontHaveAccount": "אין לך חשבון?",
+    "registerSuccess": "החשבון נוצר בהצלחה! אנא התחבר."
   },
   "admin": {
     "dashboard": "לוח בקרה",

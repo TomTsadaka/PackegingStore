@@ -66,10 +66,15 @@
   "auth": {
     "email": "Email",
     "password": "Password",
+    "name": "Full Name",
     "companyName": "Company Name",
     "businessId": "Business ID",
     "vatNumber": "VAT Number",
-    "forgotPassword": "Forgot Password"
+    "forgotPassword": "Forgot Password",
+    "createAccount": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "registerSuccess": "Account created successfully! Please login."
   },
   "admin": {
     "dashboard": "Dashboard",

@@ -7,6 +7,7 @@ import { useRouter } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const t = useTranslations('auth');
@@ -81,6 +82,13 @@ export default function LoginPage() {
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? 'Loading...' : tCommon('login')}
           </Button>
+
+          <div className="text-center text-sm text-muted-foreground">
+            {t('dontHaveAccount')}{' '}
+            <Link href="/register" className="text-primary hover:underline">
+              {tCommon('register')}
+            </Link>
+          </div>
         </form>
       </div>
     </div>
