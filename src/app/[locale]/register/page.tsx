@@ -88,6 +88,9 @@ export default function RegisterPage() {
 
     try {
       const { confirmPassword, ...submitData } = formData;
+      
+      console.log('Submitting registration:', { email: submitData.email, companyName: submitData.companyName });
+      
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
@@ -96,7 +99,16 @@ export default function RegisterPage() {
         body: JSON.stringify(submitData),
       });
 
-      const data = await response.json();
+      console.log('Registration response status:', response.status);
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        setError('Failed to parse server response. Please try again.');
+        setLoading(false);
+        return;
+      }
 
       if (!response.ok) {
         setError(data.error || 'Registration failed. Please try again.');
@@ -120,8 +132,9 @@ export default function RegisterPage() {
           router.push('/login');
         }
       }, 1500);
-    } catch (err) {
-      setError('An error occurred. Please try again.');
+    } catch (err: any) {
+      console.error('Registration error:', err);
+      setError(err?.message || 'An error occurred. Please try again.');
       setLoading(false);
     }
   };

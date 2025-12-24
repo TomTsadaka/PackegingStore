@@ -22,8 +22,9 @@ export async function POST(request: Request) {
     const parsed = registerSchema.safeParse(body);
 
     if (!parsed.success) {
+      const errorMessages = parsed.error.errors.map((err) => `${err.path.join('.')}: ${err.message}`).join(', ');
       return NextResponse.json(
-        { error: 'Invalid input' },
+        { error: `Invalid input: ${errorMessages}` },
         { status: 400 }
       );
     }
@@ -76,10 +77,27 @@ export async function POST(request: Request) {
       { message: 'User created successfully', userId: user.id },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Registration error:', error);
+    
+    // Handle Prisma unique constraint errors
+    if (error?.code === 'P2002') {
+      return NextResponse.json(
+        { error: 'Email already exists' },
+        { status: 400 }
+      );
+    }
+    
+    // Handle other Prisma errors
+    if (error?.code?.startsWith('P')) {
+      return NextResponse.json(
+        { error: 'Database error occurred' },
+        { status: 500 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: error?.message || 'Internal server error' },
       { status: 500 }
     );
   }
