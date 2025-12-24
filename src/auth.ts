@@ -4,6 +4,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { prisma } from '@/lib/prisma';
 import { compare } from 'bcryptjs';
 import { z } from 'zod';
+import { UserRole } from '@prisma/client';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -11,7 +12,7 @@ const loginSchema = z.object({
 });
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma) as any,
   session: {
     strategy: 'jwt',
   },
@@ -90,7 +91,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = (user as any).role;
+        token.role = (user as any).role as UserRole;
         token.companyId = (user as any).companyId;
         token.company = (user as any).company;
       }
@@ -99,7 +100,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
-        session.user.role = token.role as string;
+        session.user.role = token.role as UserRole;
         session.user.companyId = token.companyId as string;
         session.user.company = token.company as any;
       }
