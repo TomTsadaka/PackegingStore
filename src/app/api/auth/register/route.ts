@@ -10,6 +10,10 @@ const registerSchema = z.object({
   companyName: z.string().min(1),
   businessId: z.string().optional(),
   vatNumber: z.string().optional(),
+  phone: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  postalCode: z.string().optional(),
 });
 
 export async function POST(request: Request) {
@@ -24,7 +28,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, password, name, companyName, businessId, vatNumber } = parsed.data;
+    const { email, password, name, companyName, businessId, vatNumber, phone, address, city, postalCode } = parsed.data;
 
     // Check if user exists
     const existingUser = await prisma.user.findUnique({
@@ -42,8 +46,15 @@ export async function POST(request: Request) {
     const company = await prisma.company.create({
       data: {
         name: companyName,
+        nameEn: companyName,
         businessId,
         vatNumber,
+        phone,
+        address,
+        city,
+        postalCode,
+        email,
+        tier: 'retail',
       },
     });
 

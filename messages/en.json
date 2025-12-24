@@ -66,15 +66,27 @@
   "auth": {
     "email": "Email",
     "password": "Password",
+    "confirmPassword": "Confirm Password",
     "name": "Full Name",
     "companyName": "Company Name",
     "businessId": "Business ID",
     "vatNumber": "VAT Number",
+    "phone": "Phone Number",
+    "address": "Address",
+    "city": "City",
+    "postalCode": "Postal Code",
     "forgotPassword": "Forgot Password",
     "createAccount": "Create Account",
     "alreadyHaveAccount": "Already have an account?",
     "dontHaveAccount": "Don't have an account?",
-    "registerSuccess": "Account created successfully! Please login."
+    "registerSuccess": "Account created successfully! Please login.",
+    "step1": "Personal Information",
+    "step2": "Company Details",
+    "step3": "Account Setup",
+    "next": "Next",
+    "previous": "Previous",
+    "passwordsDontMatch": "Passwords don't match",
+    "passwordTooShort": "Password must be at least 6 characters"
   },
   "admin": {
     "dashboard": "Dashboard",

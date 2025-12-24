@@ -68,15 +68,27 @@
   "auth": {
     "email": "אימייל",
     "password": "סיסמה",
+    "confirmPassword": "אישור סיסמה",
     "name": "שם מלא",
     "companyName": "שם החברה",
     "businessId": "ח.פ / ע.מ",
     "vatNumber": "מספר מע\"מ",
+    "phone": "מספר טלפון",
+    "address": "כתובת",
+    "city": "עיר",
+    "postalCode": "מיקוד",
     "forgotPassword": "שכחתי סיסמה",
     "createAccount": "צור חשבון",
     "alreadyHaveAccount": "כבר יש לך חשבון?",
     "dontHaveAccount": "אין לך חשבון?",
-    "registerSuccess": "החשבון נוצר בהצלחה! אנא התחבר."
+    "registerSuccess": "החשבון נוצר בהצלחה! אנא התחבר.",
+    "step1": "מידע אישי",
+    "step2": "פרטי החברה",
+    "step3": "הגדרת חשבון",
+    "next": "הבא",
+    "previous": "הקודם",
+    "passwordsDontMatch": "הסיסמאות אינן תואמות",
+    "passwordTooShort": "הסיסמה חייבת להכיל לפחות 6 תווים"
   },
   "admin": {
     "dashboard": "לוח בקרה",
