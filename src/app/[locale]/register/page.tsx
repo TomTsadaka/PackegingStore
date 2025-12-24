@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
-import { CheckCircle2, Circle, Loader2 } from 'lucide-react';
+import { CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function RegisterPage() {
   const t = useTranslations('auth');
@@ -218,7 +218,7 @@ export default function RegisterPage() {
 
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
-              <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
+              <div className="space-y-4 transition-all duration-300 ease-in-out">
                 <div className="space-y-2">
                   <Label htmlFor="name">{t('name')} *</Label>
                   <Input
@@ -269,7 +269,7 @@ export default function RegisterPage() {
 
             {/* Step 2: Company Details */}
             {currentStep === 2 && (
-              <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
+              <div className="space-y-4 transition-all duration-300 ease-in-out">
                 <div className="space-y-2">
                   <Label htmlFor="companyName">{t('companyName')} *</Label>
                   <Input
@@ -355,7 +355,7 @@ export default function RegisterPage() {
 
             {/* Step 3: Account Setup */}
             {currentStep === 3 && (
-              <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
+              <div className="space-y-4 transition-all duration-300 ease-in-out">
                 <div className="space-y-2">
                   <Label htmlFor="password">{t('password')} *</Label>
                   <Input
