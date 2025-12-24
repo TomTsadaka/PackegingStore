@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { signIn } from 'next-auth/react';
 import { useRouter } from '@/i18n/routing';
@@ -32,11 +32,11 @@ export default function RegisterPage() {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const steps = [
+  const steps = useMemo(() => [
     { number: 1, label: t('step1') },
     { number: 2, label: t('step2') },
     { number: 3, label: t('step3') },
-  ];
+  ], [t]);
 
   const validateStep = (step: number): boolean => {
     const newErrors: Record<string, string> = {};
@@ -165,7 +165,7 @@ export default function RegisterPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             {steps.map((step, index) => (
-              <div key={step.number} className="flex items-center flex-1">
+              <div key={`step-${step.number}`} className="flex items-center flex-1">
                 <div className="flex flex-col items-center flex-1">
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
@@ -217,21 +217,23 @@ export default function RegisterPage() {
 
           <form onSubmit={currentStep === 3 ? handleSubmit : (e) => { e.preventDefault(); handleNext(); }} className="space-y-6">
             {errors.general && (
-              <div className="bg-destructive/10 text-destructive p-4 rounded-lg text-sm border border-destructive/20">
+              <div key="error-general" className="bg-destructive/10 text-destructive p-4 rounded-lg text-sm border border-destructive/20">
                 {errors.general}
               </div>
             )}
             
             {success && (
-              <div className="bg-green-500/10 text-green-600 dark:text-green-400 p-4 rounded-lg text-sm border border-green-500/20 flex items-center gap-2">
+              <div key="success-message" className="bg-green-500/10 text-green-600 dark:text-green-400 p-4 rounded-lg text-sm border border-green-500/20 flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5" />
                 {t('registerSuccess')}
               </div>
             )}
 
-            {/* Step 1: Personal Information */}
-            {currentStep === 1 && (
-              <div className="space-y-4 transition-all duration-300 ease-in-out">
+            {/* Step Content */}
+            <div key={`step-content-${currentStep}`} className="min-h-[300px]">
+              {/* Step 1: Personal Information */}
+              {currentStep === 1 && (
+                <div className="space-y-4 transition-all duration-300 ease-in-out">
                 <div className="space-y-2">
                   <Label htmlFor="name">{t('name')} *</Label>
                   <Input
@@ -277,12 +279,12 @@ export default function RegisterPage() {
                     placeholder="+972-50-123-4567"
                   />
                 </div>
-              </div>
-            )}
+                </div>
+              )}
 
-            {/* Step 2: Company Details */}
-            {currentStep === 2 && (
-              <div className="space-y-4 transition-all duration-300 ease-in-out">
+              {/* Step 2: Company Details */}
+              {currentStep === 2 && (
+                <div className="space-y-4 transition-all duration-300 ease-in-out">
                 <div className="space-y-2">
                   <Label htmlFor="companyName">{t('companyName')} *</Label>
                   <Input
@@ -363,12 +365,12 @@ export default function RegisterPage() {
                     />
                   </div>
                 </div>
-              </div>
-            )}
+                </div>
+              )}
 
-            {/* Step 3: Account Setup */}
-            {currentStep === 3 && (
-              <div className="space-y-4 transition-all duration-300 ease-in-out">
+              {/* Step 3: Account Setup */}
+              {currentStep === 3 && (
+                <div className="space-y-4 transition-all duration-300 ease-in-out">
                 <div className="space-y-2">
                   <Label htmlFor="password">{t('password')} *</Label>
                   <Input
@@ -403,8 +405,9 @@ export default function RegisterPage() {
                     <p className="text-sm text-destructive">{errors.confirmPassword}</p>
                   )}
                 </div>
-              </div>
-            )}
+                </div>
+              )}
+            </div>
 
             {/* Navigation Buttons */}
             <div className="flex items-center justify-between pt-6 border-t">
