@@ -158,6 +158,190 @@ export default function RegisterPage() {
     setErrors({ general: message });
   };
 
+  const renderStepContent = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">{t('name')} *</Label>
+              <Input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                className={errors.name ? 'border-destructive' : ''}
+                placeholder="John Doe"
+                required
+              />
+              {errors.name && (
+                <p className="text-sm text-destructive">{errors.name}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">{t('email')} *</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={errors.email ? 'border-destructive' : ''}
+                placeholder="john@company.com"
+                required
+              />
+              {errors.email && (
+                <p className="text-sm text-destructive">{errors.email}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phone">{t('phone')}</Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="+972-50-123-4567"
+              />
+            </div>
+          </div>
+        );
+
+      case 2:
+        return (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="companyName">{t('companyName')} *</Label>
+              <Input
+                id="companyName"
+                name="companyName"
+                type="text"
+                value={formData.companyName}
+                onChange={handleChange}
+                className={errors.companyName ? 'border-destructive' : ''}
+                placeholder="Company Ltd."
+                required
+              />
+              {errors.companyName && (
+                <p className="text-sm text-destructive">{errors.companyName}</p>
+              )}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="businessId">{t('businessId')}</Label>
+                <Input
+                  id="businessId"
+                  name="businessId"
+                  type="text"
+                  value={formData.businessId}
+                  onChange={handleChange}
+                  placeholder="123456789"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="vatNumber">{t('vatNumber')}</Label>
+                <Input
+                  id="vatNumber"
+                  name="vatNumber"
+                  type="text"
+                  value={formData.vatNumber}
+                  onChange={handleChange}
+                  placeholder="IL123456789"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="address">{t('address')}</Label>
+              <Input
+                id="address"
+                name="address"
+                type="text"
+                value={formData.address}
+                onChange={handleChange}
+                placeholder="123 Main Street"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="city">{t('city')}</Label>
+                <Input
+                  id="city"
+                  name="city"
+                  type="text"
+                  value={formData.city}
+                  onChange={handleChange}
+                  placeholder="Tel Aviv"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="postalCode">{t('postalCode')}</Label>
+                <Input
+                  id="postalCode"
+                  name="postalCode"
+                  type="text"
+                  value={formData.postalCode}
+                  onChange={handleChange}
+                  placeholder="61000"
+                />
+              </div>
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="password">{t('password')} *</Label>
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleChange}
+                className={errors.password ? 'border-destructive' : ''}
+                placeholder="Minimum 6 characters"
+                required
+                minLength={6}
+              />
+              {errors.password && (
+                <p className="text-sm text-destructive">{errors.password}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">{t('confirmPassword')} *</Label>
+              <Input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className={errors.confirmPassword ? 'border-destructive' : ''}
+                placeholder="Confirm your password"
+                required
+              />
+              {errors.confirmPassword && (
+                <p className="text-sm text-destructive">{errors.confirmPassword}</p>
+              )}
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 py-12 px-4">
       <div className="max-w-2xl mx-auto">
@@ -217,196 +401,21 @@ export default function RegisterPage() {
 
           <form onSubmit={currentStep === 3 ? handleSubmit : (e) => { e.preventDefault(); handleNext(); }} className="space-y-6">
             {errors.general && (
-              <div key="error-general" className="bg-destructive/10 text-destructive p-4 rounded-lg text-sm border border-destructive/20">
+              <div className="bg-destructive/10 text-destructive p-4 rounded-lg text-sm border border-destructive/20">
                 {errors.general}
               </div>
             )}
             
             {success && (
-              <div key="success-message" className="bg-green-500/10 text-green-600 dark:text-green-400 p-4 rounded-lg text-sm border border-green-500/20 flex items-center gap-2">
+              <div className="bg-green-500/10 text-green-600 dark:text-green-400 p-4 rounded-lg text-sm border border-green-500/20 flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5" />
                 {t('registerSuccess')}
               </div>
             )}
 
-            {/* Step Content */}
-            <div key={`step-content-${currentStep}`} className="min-h-[300px]">
-              {/* Step 1: Personal Information */}
-              {currentStep === 1 && (
-                <div className="space-y-4 transition-all duration-300 ease-in-out">
-                <div className="space-y-2">
-                  <Label htmlFor="name">{t('name')} *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={errors.name ? 'border-destructive' : ''}
-                    placeholder="John Doe"
-                    required
-                  />
-                  {errors.name && (
-                    <p className="text-sm text-destructive">{errors.name}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">{t('email')} *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={errors.email ? 'border-destructive' : ''}
-                    placeholder="john@company.com"
-                    required
-                  />
-                  {errors.email && (
-                    <p className="text-sm text-destructive">{errors.email}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone">{t('phone')}</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+972-50-123-4567"
-                  />
-                </div>
-                </div>
-              )}
-
-              {/* Step 2: Company Details */}
-              {currentStep === 2 && (
-                <div className="space-y-4 transition-all duration-300 ease-in-out">
-                <div className="space-y-2">
-                  <Label htmlFor="companyName">{t('companyName')} *</Label>
-                  <Input
-                    id="companyName"
-                    name="companyName"
-                    type="text"
-                    value={formData.companyName}
-                    onChange={handleChange}
-                    className={errors.companyName ? 'border-destructive' : ''}
-                    placeholder="Company Ltd."
-                    required
-                  />
-                  {errors.companyName && (
-                    <p className="text-sm text-destructive">{errors.companyName}</p>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="businessId">{t('businessId')}</Label>
-                    <Input
-                      id="businessId"
-                      name="businessId"
-                      type="text"
-                      value={formData.businessId}
-                      onChange={handleChange}
-                      placeholder="123456789"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="vatNumber">{t('vatNumber')}</Label>
-                    <Input
-                      id="vatNumber"
-                      name="vatNumber"
-                      type="text"
-                      value={formData.vatNumber}
-                      onChange={handleChange}
-                      placeholder="IL123456789"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="address">{t('address')}</Label>
-                  <Input
-                    id="address"
-                    name="address"
-                    type="text"
-                    value={formData.address}
-                    onChange={handleChange}
-                    placeholder="123 Main Street"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="city">{t('city')}</Label>
-                    <Input
-                      id="city"
-                      name="city"
-                      type="text"
-                      value={formData.city}
-                      onChange={handleChange}
-                      placeholder="Tel Aviv"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="postalCode">{t('postalCode')}</Label>
-                    <Input
-                      id="postalCode"
-                      name="postalCode"
-                      type="text"
-                      value={formData.postalCode}
-                      onChange={handleChange}
-                      placeholder="61000"
-                    />
-                  </div>
-                </div>
-                </div>
-              )}
-
-              {/* Step 3: Account Setup */}
-              {currentStep === 3 && (
-                <div className="space-y-4 transition-all duration-300 ease-in-out">
-                <div className="space-y-2">
-                  <Label htmlFor="password">{t('password')} *</Label>
-                  <Input
-                    id="password"
-                    name="password"
-                    type="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    className={errors.password ? 'border-destructive' : ''}
-                    placeholder="Minimum 6 characters"
-                    required
-                    minLength={6}
-                  />
-                  {errors.password && (
-                    <p className="text-sm text-destructive">{errors.password}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">{t('confirmPassword')} *</Label>
-                  <Input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type="password"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    className={errors.confirmPassword ? 'border-destructive' : ''}
-                    placeholder="Confirm your password"
-                    required
-                  />
-                  {errors.confirmPassword && (
-                    <p className="text-sm text-destructive">{errors.confirmPassword}</p>
-                  )}
-                </div>
-                </div>
-              )}
+            {/* Step Content - Using function to render instead of conditional */}
+            <div className="min-h-[300px]">
+              {renderStepContent()}
             </div>
 
             {/* Navigation Buttons */}
